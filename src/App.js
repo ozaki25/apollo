@@ -1,12 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
-import Top from './components/Top';
+import Login from './components/Login'
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Top />
+      <Login />
     </div>
   );
 }
