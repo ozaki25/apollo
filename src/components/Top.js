@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountBox from '@material-ui/icons/AccountBox'
+import { useHistory } from 'react-router-dom'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -22,6 +23,7 @@ const useStyles = makeStyles(theme => ({
 
 function Top() {
   const classes = useStyles();
+  const history = useHistory();
 
   return (
       <React.Fragment>
@@ -34,7 +36,7 @@ function Top() {
           <Typography variant="h6" className={classes.title}>
             Top
           </Typography>
-          <Button color="inherit">LogOut</Button>
+          <Button color="inherit" onClick={() => history.push('/logout')}>LogOut</Button>
           <AccountBox></AccountBox>
         </Toolbar>
       </AppBar>
