@@ -21,7 +21,17 @@ import LocationOnIcon from "@material-ui/icons/LocationOn";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1
+    margin: "0",
+    padding: "0",
+    width: "100%",
+    height: "100%"
+  },
+  header: {
+    position: "fixed",
+    top: "0px",
+    left: "0px",
+    width: "100%",
+    zIndex: "100"
   },
   menuButton: {
     marginRight: theme.spacing(2)
@@ -29,10 +39,14 @@ const useStyles = makeStyles(theme => ({
   title: {
     flexGrow: 1
   },
+  contents: {
+    padding: theme.spacing(10)
+  },
   footer: {
-    padding: theme.spacing(1),
-    marginTop: "auto",
-    backgroundColor: "blue"
+    position: "fixed",
+    bottom: "0",
+    width: "100%",
+    zIndex: "100"
   }
 }));
 
@@ -52,50 +66,63 @@ function Top() {
   return (
     <React.Fragment>
       <div className={classes.root}>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton
-              edge="start"
-              className={classes.menuButton}
-              color="inherit"
-              aria-label="menu"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" className={classes.title}>
-              Top
-            </Typography>
-            <Button color="inherit" onClick={() => history.push("/logout")}>
-              LogOut
-            </Button>
-            <AccountBox></AccountBox>
-          </Toolbar>
-        </AppBar>
+        <header className={classes.header}>
+          <AppBar>
+            <Toolbar>
+              <IconButton
+                edge="start"
+                className={classes.menuButton}
+                color="inherit"
+                aria-label="menu"
+              >
+                <MenuIcon />
+              </IconButton>
+              <Typography variant="h6" className={classes.title}>
+                Top
+              </Typography>
+              <Button color="inherit" onClick={() => history.push("/logout")}>
+                LogOut
+              </Button>
+              <AccountBox></AccountBox>
+            </Toolbar>
+          </AppBar>
+        </header>
+        <div className={classes.contents}>
+          <LineChart width={400} height={400} data={data}>
+            <Line tyope="monotone" dataKey="uv" stroke="#8884d8" />
+          </LineChart>
+          <p> Contents. </p>
+          <p> Contents. </p>
+          <p> Contents. </p>
+          <p> Contents. </p>
+          <p> Contents. </p>
+          <p> Contents. </p>
+          <p> Contents. </p>
+          <p> Contents. </p>
+          <p> Contents. </p>
+          <p> Contents. </p>
+          <p> Contents. </p>
+          <p> Contents. </p>
+          <p> Contents. </p>
+          <p> Contents. </p>
+          <p> Contents. </p>
+          <p> Contents. </p>
+        </div>
+        <footer className={classes.footer}>
+          <BottomNavigation
+            value={value}
+            onChange={(event, newValue) => {
+              setValue(newValue);
+            }}
+            showLabels
+            className={classes.root}
+          >
+            <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
+            <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
+            <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+          </BottomNavigation>
+        </footer>
       </div>
-      <div>
-        <LineChart width={400} height={400} data={data}>
-          <Line tyope="monotone" dataKey="uv" stroke="#8884d8" />
-        </LineChart>
-        <p> Contents. </p>
-        <p> Contents. </p>
-        <p> Contents. </p>
-        <p> Contents. </p>
-        <p> Contents. </p>
-      </div>
-      <footer className={classes.footer}>
-        <BottomNavigation
-          value={value}
-          onChange={(event, newValue) => {
-            setValue(newValue);
-          }}
-          showLabels
-          className={classes.root}
-        >
-          <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-          <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-          <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
-        </BottomNavigation>
-      </footer>
     </React.Fragment>
   );
 }
