@@ -10,7 +10,17 @@ import AccountBox from "@material-ui/icons/AccountBox";
 import { useHistory } from "react-router-dom";
 
 //Chart
-import { LineChart, Line } from "recharts";
+import {
+  BarChart,
+  Bar,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Legend
+} from "recharts";
+
+import { PieChart, Pie } from "recharts";
 
 //ButtomNavi
 import BottomNavigation from "@material-ui/core/BottomNavigation";
@@ -51,11 +61,17 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const data = [
-  { name: "Page A", uv: 4000 },
-  { name: "Page B", uv: 3000 },
-  { name: "Page C", uv: 1000 },
-  { name: "Page D", uv: 500 },
-  { name: "Page E", uv: 8000 }
+  { name: "1~3年目", 取得者: 100 },
+  { name: "4~5年目", 取得者: 150 },
+  { name: "6~8年目", 取得者: 200 },
+  { name: "9~10年目", 取得者: 120 },
+  { name: "11~年目", 取得者: 50 }
+];
+
+const division = [
+  { name: "基盤系", 取得者: 200 },
+  { name: "業務系", 取得者: 100 },
+  { name: "その他", 取得者: 50 }
 ];
 
 function Top() {
@@ -88,9 +104,28 @@ function Top() {
           </AppBar>
         </header>
         <div className={classes.contents}>
-          <LineChart width={400} height={400} data={data}>
-            <Line tyope="monotone" dataKey="uv" stroke="#8884d8" />
-          </LineChart>
+          <h2>取得者年次分布</h2>
+          <BarChart width={500} height={300} data={data}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Bar type="monotone" dataKey="取得者" fill="#8884d8" />
+          </BarChart>
+          <h2>取得者エリア分布</h2>
+          <PieChart width={400} height={400}>
+            <Pie
+              data={division}
+              dataKey="取得者"
+              cx={200}
+              cy={200}
+              outerRadius={80}
+              fill="#82ca9d"
+              label
+            />
+            <Tooltip />
+          </PieChart>
           <p> Contents. </p>
           <p> Contents. </p>
           <p> Contents. </p>
