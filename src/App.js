@@ -9,6 +9,8 @@ import {
 import Login from "./components/Login";
 import Logout from "./Logout";
 import Top from "./components/Top";
+import Favo from "./components/Favo";
+import Nearby from "./components/Nearby";
 import Auth from "./Auth";
 
 // serviceWorker
@@ -24,6 +26,8 @@ class App extends Component {
           <Auth>
             <Switch>
               <Route exact path="/top" component={Top} />
+              <Route exact path="/favo" component={Favo} />
+              <Route exact path="/nearby" component={Nearby} />
               <Redirect from="/" to="/top" />
             </Switch>
           </Auth>

@@ -105,6 +105,7 @@ function Top() {
           </AppBar>
         </header>
         <div className={classes.contents}>
+          <h1>this is favo page</h1>
           <h2>取得者年次分布</h2>
           <BarChart width={500} height={300} data={data}>
             <CartesianGrid strokeDasharray="3 3" />
