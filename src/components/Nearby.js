@@ -7,7 +7,7 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import AccountBox from "@material-ui/icons/AccountBox";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 //Chart
 import {
@@ -79,7 +79,8 @@ const division = [
 function Top() {
   const classes = useStyles();
   const history = useHistory();
-  const [value, setValue] = React.useState(0);
+  const locate = useLocation();
+  const [value, setValue] = React.useState(locate.pathname.slice(1));
 
   return (
     <React.Fragment>

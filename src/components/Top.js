@@ -7,7 +7,7 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import AccountBox from "@material-ui/icons/AccountBox";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 //Chart
 import {
@@ -79,7 +79,8 @@ const division = [
 function Top() {
   const classes = useStyles();
   const history = useHistory();
-  const [value, setValue] = React.useState(0);
+  const locate = useLocation();
+  const [value, setValue] = React.useState(locate.pathname.slice(1));
 
   return (
     <React.Fragment>
@@ -106,6 +107,7 @@ function Top() {
           </AppBar>
         </header>
         <div className={classes.contents}>
+          <h1>TOP PAGE!!!!!!!!!!</h1>
           <h2>取得者年次分布</h2>
           <BarChart width={500} height={300} data={data}>
             <CartesianGrid strokeDasharray="3 3" />
@@ -116,7 +118,7 @@ function Top() {
             <Bar type="monotone" dataKey="取得者" fill="#8884d8" />
           </BarChart>
           <h2>取得者エリア分布</h2>
-          <PieChart width={400} height={400}>
+          <PieChart width={200} height={400}>
             <Pie
               data={division}
               dataKey="取得者"
