@@ -99,7 +99,10 @@ function Top() {
               <Typography variant="h6" className={classes.title}>
                 Top
               </Typography>
-              <Button color="inherit" onClick={() => history.push("/logout")}>
+              <Button
+                color="inherit"
+                onClick={() => history.replace("/logout")}
+              >
                 LogOut
               </Button>
               <AccountBox></AccountBox>
@@ -152,7 +155,7 @@ function Top() {
             value={value}
             onChange={(event, newValue) => {
               setValue(newValue);
-              history.push(`/${newValue}`);
+              history.replace(`/${newValue}`);
             }}
             showLabels
           >

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -15,7 +15,6 @@ import Container from "@material-ui/core/Container";
 import User from "../User";
 import { useHistory } from "react-router-dom";
 import firebase from "../firebase";
-import googleSignin from "../img/googleSignin.png";
 
 function Copyright() {
   return (
@@ -56,19 +55,20 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function SignIn() {
+  const [mail, setMail] = useState();
+  const [pswd, setPswd] = useState();
   const classes = useStyles();
   const history = useHistory();
 
-  useEffect(() => {
-    alert(localStorage.getItem("isLoading"));
-    firebase.auth().onAuthStateChanged(user => {
-      user && localStorage.setItem("name", user.displayName);
-      alert("login");
-    });
-    localStorage.setItem("isLoading", false);
-    alert(localStorage.getItem("name"));
-    localStorage.getItem("name") && history.push("/top");
-  }, []);
+  const onChangeMail = e => {
+    const value = e.target.value;
+    setMail(value);
+  };
+
+  const onChangePswd = e => {
+    const value = e.target.value;
+    setPswd(value);
+  };
 
   const onClick = async () => {
     try {
@@ -78,7 +78,6 @@ export default function SignIn() {
   };
   const login = async () => {
     try {
-      localStorage.setItem("isLoading", true);
       const provider = new firebase.auth.GoogleAuthProvider();
       firebase.auth().signInWithRedirect(provider);
     } catch (e) {}
@@ -105,6 +104,8 @@ export default function SignIn() {
             name="email"
             autoComplete="email"
             autoFocus
+            value={mail}
+            onChange={onChangeMail}
           />
           <TextField
             variant="outlined"
@@ -116,6 +117,8 @@ export default function SignIn() {
             type="password"
             id="password"
             autoComplete="current-password"
+            value={pswd}
+            onChange={onChangePswd}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
@@ -131,7 +134,7 @@ export default function SignIn() {
           >
             Sign In
           </Button>
-          <img src={googleSignin} alt="GoogleSignin" onClick={login} />
+          <Button onClick="login">Google login</Button>
           <Grid container>
             <Grid item xs>
               <Link href="#" variant="body2">

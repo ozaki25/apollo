@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -16,27 +16,23 @@ import Auth from "./Auth";
 // serviceWorker
 import { register } from "./serviceWorker";
 
-class App extends Component {
-  render() {
-    return (
-      <Router>
-        <Switch>
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/logout" component={Logout} />
-          <Auth>
-            <Switch>
-              <Route exact path="/top" component={Top} />
-              <Route exact path="/favo" component={Favo} />
-              <Route exact path="/nearby" component={Nearby} />
-              <Redirect from="/" to="/top" />
-            </Switch>
-          </Auth>
-        </Switch>
-      </Router>
-    );
-  }
+export default function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/logout" component={Logout} />
+        <Auth>
+          <Switch>
+            <Route exact path="/top" component={Top} />
+            <Route exact path="/favo" component={Favo} />
+            <Route exact path="/nearby" component={Nearby} />
+            <Redirect from="/" to="/top" />
+          </Switch>
+        </Auth>
+      </Switch>
+    </Router>
+  );
 }
 
-register();
-
-export default App;
+//register();
