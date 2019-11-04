@@ -60,11 +60,14 @@ export default function SignIn() {
   const history = useHistory();
 
   useEffect(() => {
+    alert(localStorage.getItem("isLoading"));
     firebase.auth().onAuthStateChanged(user => {
       user && localStorage.setItem("name", user.displayName);
-      user && alert("effect" + user.displayName);
+      alert("login");
     });
-    return () => {};
+    localStorage.setItem("isLoading", false);
+    alert(localStorage.getItem("name"));
+    localStorage.getItem("name") && history.push("/top");
   }, []);
 
   const onClick = async () => {
@@ -75,6 +78,7 @@ export default function SignIn() {
   };
   const login = async () => {
     try {
+      localStorage.setItem("isLoading", true);
       const provider = new firebase.auth.GoogleAuthProvider();
       firebase.auth().signInWithRedirect(provider);
     } catch (e) {}
