@@ -1,8 +1,9 @@
-import React from 'react'
-import { Redirect } from 'react-router-dom'
-import User from './User'
+import React from "react";
+import { Redirect } from "react-router-dom";
 
-const Auth = props =>
-    User.isLoggedIn() ? props.children : <Redirect to={'/login'} />;
+const username = localStorage.getItem("name");
 
-export default Auth
+alert("auth" + username);
+const Auth = props => (username ? props.children : <Redirect to={"/login"} />);
+
+export default Auth;
