@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -60,15 +60,11 @@ export default function SignIn() {
   const history = useHistory();
 
   useEffect(() => {
-    alert(localStorage.getItem("isLoading"));
     firebase.auth().onAuthStateChanged(user => {
       user && localStorage.setItem("name", user.displayName);
-      alert("login");
+      user && history.push("./top");
     });
-    localStorage.setItem("isLoading", false);
-    alert(localStorage.getItem("name"));
-    localStorage.getItem("name") && history.push("/top");
-  }, []);
+  }, [history]);
 
   const onClick = async () => {
     try {
