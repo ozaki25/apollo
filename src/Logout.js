@@ -14,7 +14,7 @@ export default function Logout() {
   return (
     <div>
       <div>Logout</div>
-      <Link to="/login">goto login</Link>
+      <Link to="/">goto login</Link>
     </div>
   );
 }
