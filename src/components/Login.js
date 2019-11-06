@@ -62,6 +62,7 @@ export default function SignIn() {
   const login = async () => {
     try {
       sessionStorage.setItem("isLoading", true);
+      setLoading(true);
       const provider = new firebase.auth.GoogleAuthProvider();
       firebase.auth().signInWithRedirect(provider);
     } catch (e) {}

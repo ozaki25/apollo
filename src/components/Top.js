@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -8,6 +8,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import AccountBox from "@material-ui/icons/AccountBox";
 import { useHistory, useLocation } from "react-router-dom";
+import Drawer from "@material-ui/core/Drawer";
 
 //Chart
 import {
@@ -52,13 +53,19 @@ const useStyles = makeStyles(theme => ({
   contents: {
     marginTop: theme.spacing(10),
     marginBottom: theme.spacing(10),
-    width: "100%"
+    width: "100%",
+    padding: "100"
   },
   footer: {
     position: "fixed",
     bottom: "0",
     width: "100%",
     zIndex: "100"
+  },
+  list: {
+    backgroundColor: "gray",
+    height: "100%",
+    width: 250
   }
 }));
 
@@ -81,11 +88,34 @@ function Top() {
   const history = useHistory();
   const locate = useLocation();
   const [value, setValue] = React.useState(locate.pathname.slice(1));
+  const [state, setState] = useState({ left: false });
+  const toggleDrawer = (side, open) => event => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
 
+    setState({ ...state, [side]: open });
+  };
+  const sideList = side => (
+    <div
+      className={classes.list}
+      role="presentation"
+      onClick={toggleDrawer(side, false)}
+      onKeyDown={toggleDrawer(side, false)}
+    >
+      a
+    </div>
+  );
   return (
     <React.Fragment>
       <div className={classes.root}>
         <header className={classes.header}>
+          <Drawer open={state.left} onClose={toggleDrawer("left", false)}>
+            {sideList("left")}
+          </Drawer>
           <AppBar>
             <Toolbar>
               <IconButton
@@ -93,6 +123,7 @@ function Top() {
                 className={classes.menuButton}
                 color="inherit"
                 aria-label="menu"
+                onClick={toggleDrawer("left", true)}
               >
                 <MenuIcon />
               </IconButton>
