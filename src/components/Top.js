@@ -9,6 +9,15 @@ import MenuIcon from "@material-ui/icons/Menu";
 import AccountBox from "@material-ui/icons/AccountBox";
 import { useHistory, useLocation } from "react-router-dom";
 import Drawer from "@material-ui/core/Drawer";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import Divider from "@material-ui/core/Divider";
+import AddBoxIcon from "@material-ui/icons/AddBox";
+import CreateIcon from "@material-ui/icons/Create";
+import ChatIcon from "@material-ui/icons/Chat";
+import NotificationsIcon from "@material-ui/icons/Notifications";
 
 //Chart
 import {
@@ -63,8 +72,6 @@ const useStyles = makeStyles(theme => ({
     zIndex: "100"
   },
   list: {
-    backgroundColor: "gray",
-    height: "100%",
     width: 250
   }
 }));
@@ -106,7 +113,47 @@ function Top() {
       onClick={toggleDrawer(side, false)}
       onKeyDown={toggleDrawer(side, false)}
     >
-      a
+      <List>
+        <ListItem>
+          <ListItemText primary="目標" />
+        </ListItem>
+        <ListItem button key="targetregist">
+          <ListItemIcon>
+            <AddBoxIcon />
+          </ListItemIcon>
+          <ListItemText primary="目標追加" />
+        </ListItem>
+        <ListItem button key="regist">
+          <ListItemIcon>
+            <CreateIcon />
+          </ListItemIcon>
+          <ListItemText primary="実績追加" />
+        </ListItem>
+      </List>
+      <Divider />
+      <List>
+        <ListItem>
+          <ListItemText primary="SNS" />
+        </ListItem>
+        <ListItem button key="chat">
+          <ListItemIcon>
+            <ChatIcon />
+          </ListItemIcon>
+          <ListItemText primary="Chat" />
+        </ListItem>
+      </List>
+      <Divider />
+      <List>
+        <ListItem>
+          <ListItemText primary="通知" />
+        </ListItem>
+        <ListItem button key="notify">
+          <ListItemIcon>
+            <NotificationsIcon />
+          </ListItemIcon>
+          <ListItemText primary="通知" />
+        </ListItem>
+      </List>
     </div>
   );
   return (
