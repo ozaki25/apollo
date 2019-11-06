@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -8,6 +8,16 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import AccountBox from "@material-ui/icons/AccountBox";
 import { useHistory, useLocation } from "react-router-dom";
+import Drawer from "@material-ui/core/Drawer";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import Divider from "@material-ui/core/Divider";
+import AddBoxIcon from "@material-ui/icons/AddBox";
+import CreateIcon from "@material-ui/icons/Create";
+import ChatIcon from "@material-ui/icons/Chat";
+import NotificationsIcon from "@material-ui/icons/Notifications";
 
 //Chart
 import {
@@ -52,13 +62,17 @@ const useStyles = makeStyles(theme => ({
   contents: {
     marginTop: theme.spacing(10),
     marginBottom: theme.spacing(10),
-    width: "100%"
+    width: "100%",
+    padding: "100"
   },
   footer: {
     position: "fixed",
     bottom: "0",
     width: "100%",
     zIndex: "100"
+  },
+  list: {
+    width: 250
   }
 }));
 
@@ -81,11 +95,74 @@ function Top() {
   const history = useHistory();
   const locate = useLocation();
   const [value, setValue] = React.useState(locate.pathname.slice(1));
+  const [state, setState] = useState({ left: false });
+  const toggleDrawer = (side, open) => event => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
 
+    setState({ ...state, [side]: open });
+  };
+  const sideList = side => (
+    <div
+      className={classes.list}
+      role="presentation"
+      onClick={toggleDrawer(side, false)}
+      onKeyDown={toggleDrawer(side, false)}
+    >
+      <List>
+        <ListItem>
+          <ListItemText primary="目標" />
+        </ListItem>
+        <ListItem button key="targetregist">
+          <ListItemIcon>
+            <AddBoxIcon />
+          </ListItemIcon>
+          <ListItemText primary="目標追加" />
+        </ListItem>
+        <ListItem button key="regist">
+          <ListItemIcon>
+            <CreateIcon />
+          </ListItemIcon>
+          <ListItemText primary="実績追加" />
+        </ListItem>
+      </List>
+      <Divider />
+      <List>
+        <ListItem>
+          <ListItemText primary="SNS" />
+        </ListItem>
+        <ListItem button key="chat">
+          <ListItemIcon>
+            <ChatIcon />
+          </ListItemIcon>
+          <ListItemText primary="Chat" />
+        </ListItem>
+      </List>
+      <Divider />
+      <List>
+        <ListItem>
+          <ListItemText primary="通知" />
+        </ListItem>
+        <ListItem button key="notify">
+          <ListItemIcon>
+            <NotificationsIcon />
+          </ListItemIcon>
+          <ListItemText primary="通知" />
+        </ListItem>
+      </List>
+    </div>
+  );
   return (
     <React.Fragment>
       <div className={classes.root}>
         <header className={classes.header}>
+          <Drawer open={state.left} onClose={toggleDrawer("left", false)}>
+            {sideList("left")}
+          </Drawer>
           <AppBar>
             <Toolbar>
               <IconButton
@@ -93,6 +170,7 @@ function Top() {
                 className={classes.menuButton}
                 color="inherit"
                 aria-label="menu"
+                onClick={toggleDrawer("left", true)}
               >
                 <MenuIcon />
               </IconButton>
