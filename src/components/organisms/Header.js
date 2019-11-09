@@ -56,7 +56,7 @@ function Header() {
     setState({ ...state, [side]: open });
   };
   const menuClick = value => event => {
-    return alert(value);
+    history.replace("/" + value);
   };
 
   const sideList = side => (
@@ -69,6 +69,12 @@ function Header() {
       <List>
         <ListItem>
           <ListItemText primary="目標" />
+        </ListItem>
+        <ListItem button onClick={menuClick("target")}>
+          <ListItemIcon>
+            <AddBoxIcon />
+          </ListItemIcon>
+          <ListItemText primary="目標追加" />
         </ListItem>
         <ListItem button onClick={menuClick("targetregist")}>
           <ListItemIcon>
