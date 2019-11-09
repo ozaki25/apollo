@@ -150,11 +150,11 @@ function Top() {
         </div>
         <footer className={classes.footer}>
           <BottomNavigation
-            value={value}
             onChange={(event, newValue) => {
               setValue(newValue);
-              history.push(`/${newValue}`);
+              history.replace(`/${newValue}`);
             }}
+            value={value}
             showLabels
           >
             <BottomNavigationAction

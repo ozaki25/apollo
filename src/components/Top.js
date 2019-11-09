@@ -106,6 +106,10 @@ function Top() {
 
     setState({ ...state, [side]: open });
   };
+  const menuClick = value => event => {
+    return alert(value);
+  };
+
   const sideList = side => (
     <div
       className={classes.list}
@@ -117,13 +121,13 @@ function Top() {
         <ListItem>
           <ListItemText primary="目標" />
         </ListItem>
-        <ListItem button key="targetregist">
+        <ListItem button onClick={menuClick("targetregist")}>
           <ListItemIcon>
             <AddBoxIcon />
           </ListItemIcon>
           <ListItemText primary="目標追加" />
         </ListItem>
-        <ListItem button key="regist">
+        <ListItem button key="regist" onClick={menuClick()}>
           <ListItemIcon>
             <CreateIcon />
           </ListItemIcon>
@@ -135,7 +139,7 @@ function Top() {
         <ListItem>
           <ListItemText primary="SNS" />
         </ListItem>
-        <ListItem button key="chat">
+        <ListItem button key="chat" onClick={menuClick}>
           <ListItemIcon>
             <ChatIcon />
           </ListItemIcon>
@@ -147,7 +151,7 @@ function Top() {
         <ListItem>
           <ListItemText primary="通知" />
         </ListItem>
-        <ListItem button key="notify">
+        <ListItem button key="notify" onClick={menuClick}>
           <ListItemIcon>
             <NotificationsIcon />
           </ListItemIcon>
@@ -157,105 +161,100 @@ function Top() {
     </div>
   );
   return (
-    <React.Fragment>
-      <div className={classes.root}>
-        <header className={classes.header}>
-          <Drawer open={state.left} onClose={toggleDrawer("left", false)}>
-            {sideList("left")}
-          </Drawer>
-          <AppBar>
-            <Toolbar>
-              <IconButton
-                edge="start"
-                className={classes.menuButton}
-                color="inherit"
-                aria-label="menu"
-                onClick={toggleDrawer("left", true)}
-              >
-                <MenuIcon />
-              </IconButton>
-              <Typography variant="h6" className={classes.title}>
-                Top
-              </Typography>
-              <Button
-                color="inherit"
-                onClick={() => history.replace("/logout")}
-              >
-                LogOut
-              </Button>
-              <AccountBox></AccountBox>
-            </Toolbar>
-          </AppBar>
-        </header>
-        <div className={classes.contents}>
-          <h1>TOP PAGE!!!!!!!!!!</h1>
-          <h2>取得者年次分布</h2>
-          <BarChart width={500} height={300} data={data}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Bar type="monotone" dataKey="取得者" fill="#8884d8" />
-          </BarChart>
-          <h2>取得者エリア分布</h2>
-          <PieChart width={200} height={400}>
-            <Pie
-              data={division}
-              dataKey="取得者"
-              cx={200}
-              cy={200}
-              outerRadius={80}
-              fill="#82ca9d"
-              label
-            />
-            <Tooltip />
-          </PieChart>
-          <p> Contents. </p>
-          <p> Contents. </p>
-          <p> Contents. </p>
-          <p> Contents. </p>
-          <p> Contents. </p>
-          <p> Contents. </p>
-          <p> Contents. </p>
-          <p> Contents. </p>
-          <p> Contents. </p>
-          <p> Contents. </p>
-          <p> Contents. </p>
-          <p> Contents. </p>
-          <p> Contents. </p>
-          <p> Contents. </p>
-          <p> Contents. </p>
-          <p> Contents. </p>
-        </div>
-        <footer className={classes.footer}>
-          <BottomNavigation
-            value={value}
-            onChange={(event, newValue) => {
-              setValue(newValue);
-              history.replace(`/${newValue}`);
-            }}
-            showLabels
-          >
-            <BottomNavigationAction
-              label="Recents"
-              icon={<RestoreIcon />}
-              value="top"
-            />
-            <BottomNavigationAction
-              label="Favorites"
-              icon={<FavoriteIcon />}
-              value="favo"
-            />
-            <BottomNavigationAction
-              label="Nearby"
-              icon={<LocationOnIcon />}
-              value="nearby"
-            />
-          </BottomNavigation>
-        </footer>
+    <div className={classes.root}>
+      <header className={classes.header}>
+        <Drawer open={state.left} onClose={toggleDrawer("left", false)}>
+          {sideList("left")}
+        </Drawer>
+        <AppBar>
+          <Toolbar>
+            <IconButton
+              edge="start"
+              className={classes.menuButton}
+              color="inherit"
+              aria-label="menu"
+              onClick={toggleDrawer("left", true)}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" className={classes.title}>
+              Top
+            </Typography>
+            <Button color="inherit" onClick={() => history.replace("/logout")}>
+              LogOut
+            </Button>
+            <AccountBox></AccountBox>
+          </Toolbar>
+        </AppBar>
+      </header>
+      <div className={classes.contents}>
+        <h1>TOP PAGE!!!!!!!!!!</h1>
+        <h2>取得者年次分布</h2>
+        <BarChart width={500} height={300} data={data}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Bar type="monotone" dataKey="取得者" fill="#8884d8" />
+        </BarChart>
+        <h2>取得者エリア分布</h2>
+        <PieChart width={200} height={400}>
+          <Pie
+            data={division}
+            dataKey="取得者"
+            cx={200}
+            cy={200}
+            outerRadius={80}
+            fill="#82ca9d"
+            label
+          />
+          <Tooltip />
+        </PieChart>
+        <p> Contents. </p>
+        <p> Contents. </p>
+        <p> Contents. </p>
+        <p> Contents. </p>
+        <p> Contents. </p>
+        <p> Contents. </p>
+        <p> Contents. </p>
+        <p> Contents. </p>
+        <p> Contents. </p>
+        <p> Contents. </p>
+        <p> Contents. </p>
+        <p> Contents. </p>
+        <p> Contents. </p>
+        <p> Contents. </p>
+        <p> Contents. </p>
+        <p> Contents. </p>
       </div>
-    </React.Fragment>
+      <footer className={classes.footer}>
+        <BottomNavigation
+          onChange={(event, newValue) => {
+            setValue(newValue);
+            history.replace(`/${newValue}`);
+          }}
+          value={value}
+          showLabels
+        >
+          <BottomNavigationAction
+            label="Recents"
+            icon={<RestoreIcon />}
+            value="top"
+          />
+          <BottomNavigationAction
+            label="Favorites"
+            icon={<FavoriteIcon />}
+            value="favo"
+          />
+          <BottomNavigationAction
+            label="Nearby"
+            icon={<LocationOnIcon />}
+            value="nearby"
+          />
+        </BottomNavigation>
+      </footer>
+    </div>
   );
 }
 export default Top;
