@@ -7,7 +7,7 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import AccountBox from "@material-ui/icons/AccountBox";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -28,8 +28,7 @@ const useStyles = makeStyles(theme => ({
     zIndex: "100",
     margin: "0",
     padding: "0",
-    width: "100%",
-    height: "100%"
+    width: "100%"
   },
   menuButton: {
     marginRight: theme.spacing(2)
