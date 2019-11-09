@@ -13,6 +13,8 @@ import Favo from "./components/Favo";
 import Nearby from "./components/Nearby";
 import Auth from "./Auth";
 
+import Header from "./components/organisms/Header";
+
 // serviceWorker
 import { register } from "./serviceWorker";
 
@@ -23,11 +25,12 @@ export default function App() {
         <Route exact path="/" component={Login} />
         <Route exact path="/logout" component={Logout} />
         <Auth>
+          <Header />
           <Switch>
-            <Route exact path="/top" component={Top} />
-            <Route exact path="/favo" component={Favo} />
-            <Route exact path="/nearby" component={Nearby} />
-            <Redirect from="/" to="/top" />
+            <Route exact path="/target" component={Top} />
+            <Route exact path="/sns" component={Favo} />
+            <Route exact path="/notification" component={Nearby} />
+            <Redirect from="/" to="/target" />
           </Switch>
         </Auth>
       </Switch>
