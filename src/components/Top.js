@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { useHistory, useLocation } from "react-router-dom";
 
 //Chart
 import {
@@ -15,13 +14,6 @@ import {
 
 import { PieChart, Pie } from "recharts";
 
-//ButtomNavi
-import BottomNavigation from "@material-ui/core/BottomNavigation";
-import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
-import RestoreIcon from "@material-ui/icons/Restore";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import LocationOnIcon from "@material-ui/icons/LocationOn";
-
 const useStyles = makeStyles(theme => ({
   root: {
     margin: "0",
@@ -29,33 +21,11 @@ const useStyles = makeStyles(theme => ({
     width: "100%",
     height: "100%"
   },
-  header: {
-    position: "fixed",
-    top: "0px",
-    left: "0px",
-    width: "100%",
-    zIndex: "100"
-  },
-  menuButton: {
-    marginRight: theme.spacing(2)
-  },
-  title: {
-    flexGrow: 1
-  },
   contents: {
     marginTop: theme.spacing(10),
     marginBottom: theme.spacing(10),
     width: "100%",
     padding: "100"
-  },
-  footer: {
-    position: "fixed",
-    bottom: "0",
-    width: "100%",
-    zIndex: "100"
-  },
-  list: {
-    width: 250
   }
 }));
 
@@ -75,9 +45,6 @@ const division = [
 
 function Top() {
   const classes = useStyles();
-  const history = useHistory();
-  const locate = useLocation();
-  const [value, setValue] = React.useState(locate.pathname.slice(1));
 
   return (
     <div className={classes.root}>
@@ -122,32 +89,6 @@ function Top() {
         <p> Contents. </p>
         <p> Contents. </p>
       </div>
-      <footer className={classes.footer}>
-        <BottomNavigation
-          onChange={(event, newValue) => {
-            setValue(newValue);
-            history.replace(`/${newValue}`);
-          }}
-          value={value}
-          showLabels
-        >
-          <BottomNavigationAction
-            label="Recents"
-            icon={<RestoreIcon />}
-            value="top"
-          />
-          <BottomNavigationAction
-            label="Favorites"
-            icon={<FavoriteIcon />}
-            value="favo"
-          />
-          <BottomNavigationAction
-            label="Nearby"
-            icon={<LocationOnIcon />}
-            value="nearby"
-          />
-        </BottomNavigation>
-      </footer>
     </div>
   );
 }

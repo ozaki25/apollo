@@ -54,7 +54,7 @@ export default function SignIn() {
         localStorage.setItem("name", user.displayName);
         sessionStorage.setItem("isLoading", false);
         setLoading(false);
-        history.push("./top");
+        history.push("./target");
       }
     });
   }, [history]);

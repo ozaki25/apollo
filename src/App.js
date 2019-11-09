@@ -14,6 +14,7 @@ import Nearby from "./components/Nearby";
 import Auth from "./Auth";
 
 import Header from "./components/organisms/Header";
+import Footer from "./components/organisms/Footer";
 
 // serviceWorker
 import { register } from "./serviceWorker";
@@ -32,6 +33,7 @@ export default function App() {
             <Route exact path="/notification" component={Nearby} />
             <Redirect from="/" to="/target" />
           </Switch>
+          <Footer />
         </Auth>
       </Switch>
     </Router>
