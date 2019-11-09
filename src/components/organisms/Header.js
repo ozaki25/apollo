@@ -27,8 +27,7 @@ const useStyles = makeStyles(theme => ({
     width: "100%",
     zIndex: "100",
     margin: "0",
-    padding: "0",
-    width: "100%"
+    padding: "0"
   },
   menuButton: {
     marginRight: theme.spacing(2)
@@ -56,7 +55,7 @@ function Header() {
     setState({ ...state, [side]: open });
   };
   const menuClick = value => event => {
-    return alert(value);
+    history.push("/" + value);
   };
 
   const sideList = side => (
@@ -69,6 +68,12 @@ function Header() {
       <List>
         <ListItem>
           <ListItemText primary="目標" />
+        </ListItem>
+        <ListItem button onClick={menuClick("target")}>
+          <ListItemIcon>
+            <AddBoxIcon />
+          </ListItemIcon>
+          <ListItemText primary="目標ホーム" />
         </ListItem>
         <ListItem button onClick={menuClick("targetregist")}>
           <ListItemIcon>
@@ -87,6 +92,12 @@ function Header() {
       <List>
         <ListItem>
           <ListItemText primary="SNS" />
+        </ListItem>
+        <ListItem button key="chattop" onClick={menuClick("sns")}>
+          <ListItemIcon>
+            <ChatIcon />
+          </ListItemIcon>
+          <ListItemText primary="Chat" />
         </ListItem>
         <ListItem button key="chat" onClick={menuClick}>
           <ListItemIcon>
