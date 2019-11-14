@@ -11,9 +11,9 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { useHistory } from "react-router-dom";
-import firebase from "../firebase";
-import googleSignin from "../img/googleSignin.png";
-import OverlaySpinner from "./OverlaySpinner";
+import firebase from "../utils/firebase";
+import googleSignin from "../../img/googleSignin.png";
+import OverlaySpinner from "./../utils/OverlaySpinner";
 
 const useStyles = makeStyles(theme => ({
   "@global": {
@@ -54,7 +54,7 @@ export default function SignIn() {
         localStorage.setItem("name", user.displayName);
         sessionStorage.setItem("isLoading", false);
         setLoading(false);
-        history.push("./top");
+        history.push("./target");
       }
     });
   }, [history]);
