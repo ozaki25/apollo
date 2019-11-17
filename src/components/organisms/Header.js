@@ -76,7 +76,7 @@ function Header() {
         <ListItem>
           <ListItemText primary="目標" />
         </ListItem>
-        <ListItem button onClick={menuClick("target")}>
+        <ListItem button onClick={menuClick("confirmprofile?target")}>
           <ListItemIcon>
             <PersonAddIcon />
           </ListItemIcon>
@@ -117,7 +117,11 @@ function Header() {
           <ListItemText primary="進捗状況を確認" />
         </ListItem>
 
-        <ListItem button key="checklist" onClick={menuClick()}>
+        <ListItem
+          button
+          key="checkJisseki"
+          onClick={menuClick("jissekikannri")}
+        >
           <ListItemIcon>
             <ListAltIcon />
           </ListItemIcon>
@@ -130,7 +134,7 @@ function Header() {
         <ListItem>
           <ListItemText primary="SNS" />
         </ListItem>
-        <ListItem button key="addTaiken" onClick={menuClick("sns")}>
+        <ListItem button key="goukakuki" onClick={menuClick("goukakuki?sns")}>
           <ListItemIcon>
             <InsertCommentIcon />
           </ListItemIcon>
