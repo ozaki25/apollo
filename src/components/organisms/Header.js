@@ -14,10 +14,17 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
+import PersonAddIcon from "@material-ui/icons/PersonAdd";
+import PersonIcon from "@material-ui/icons/Person";
+import QueueIcon from "@material-ui/icons/Queue";
 import AddBoxIcon from "@material-ui/icons/AddBox";
-import CreateIcon from "@material-ui/icons/Create";
-import ChatIcon from "@material-ui/icons/Chat";
-import NotificationsIcon from "@material-ui/icons/Notifications";
+import ListIcon from "@material-ui/icons/List";
+import AlarmIcon from "@material-ui/icons/Alarm";
+import ListAltIcon from "@material-ui/icons/ListAlt";
+import InsertCommentIcon from "@material-ui/icons/InsertComment";
+import InsertChartIcon from "@material-ui/icons/InsertChart";
+import NotificationsActiveIcon from "@material-ui/icons/NotificationsActive";
+import InsertLinkIcon from "@material-ui/icons/InsertLink";
 
 const useStyles = makeStyles(theme => ({
   header: {
@@ -71,39 +78,70 @@ function Header() {
         </ListItem>
         <ListItem button onClick={menuClick("target")}>
           <ListItemIcon>
-            <AddBoxIcon />
+            <PersonAddIcon />
           </ListItemIcon>
-          <ListItemText primary="目標ホーム" />
+          <ListItemText primary="プロフィール作成" />
         </ListItem>
         <ListItem button onClick={menuClick("targetregist")}>
           <ListItemIcon>
-            <AddBoxIcon />
+            <PersonIcon />
           </ListItemIcon>
-          <ListItemText primary="目標追加" />
+          <ListItemText primary="プロフィール確認" />
         </ListItem>
+
         <ListItem button key="regist" onClick={menuClick()}>
           <ListItemIcon>
-            <CreateIcon />
+            <QueueIcon />
           </ListItemIcon>
-          <ListItemText primary="実績追加" />
+          <ListItemText primary="目標一覧を確認する" />
+        </ListItem>
+
+        <ListItem button key="addTarget" onClick={menuClick()}>
+          <ListItemIcon>
+            <AddBoxIcon />
+          </ListItemIcon>
+          <ListItemText primary="自分の目標を追加する" />
+        </ListItem>
+
+        <ListItem button key="checkTarget" onClick={menuClick()}>
+          <ListItemIcon>
+            <ListIcon />
+          </ListItemIcon>
+          <ListItemText primary="自分の目標を確認" />
+        </ListItem>
+
+        <ListItem button key="checkSchedule" onClick={menuClick()}>
+          <ListItemIcon>
+            <AlarmIcon />
+          </ListItemIcon>
+          <ListItemText primary="進捗状況を確認" />
+        </ListItem>
+
+        <ListItem button key="checklist" onClick={menuClick()}>
+          <ListItemIcon>
+            <ListAltIcon />
+          </ListItemIcon>
+          <ListItemText primary="受験実績を確認" />
         </ListItem>
       </List>
+
       <Divider />
       <List>
         <ListItem>
           <ListItemText primary="SNS" />
         </ListItem>
-        <ListItem button key="chattop" onClick={menuClick("sns")}>
+        <ListItem button key="addTaiken" onClick={menuClick("sns")}>
           <ListItemIcon>
-            <ChatIcon />
+            <InsertCommentIcon />
           </ListItemIcon>
-          <ListItemText primary="Chat" />
+          <ListItemText primary="合格体験記を書く" />
         </ListItem>
-        <ListItem button key="chat" onClick={menuClick}>
+
+        <ListItem button key="checkThread" onClick={menuClick}>
           <ListItemIcon>
-            <ChatIcon />
+            <InsertChartIcon />
           </ListItemIcon>
-          <ListItemText primary="Chat" />
+          <ListItemText primary="スレッドを確認する" />
         </ListItem>
       </List>
       <Divider />
@@ -113,9 +151,16 @@ function Header() {
         </ListItem>
         <ListItem button key="notify" onClick={menuClick}>
           <ListItemIcon>
-            <NotificationsIcon />
+            <NotificationsActiveIcon />
           </ListItemIcon>
-          <ListItemText primary="通知" />
+          <ListItemText primary="通知を確認する" />
+        </ListItem>
+
+        <ListItem button key="shareIPPO" onClick={menuClick}>
+          <ListItemIcon>
+            <InsertLinkIcon />
+          </ListItemIcon>
+          <ListItemText primary="IPPOと連携する" />
         </ListItem>
       </List>
     </div>
