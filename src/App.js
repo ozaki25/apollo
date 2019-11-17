@@ -10,7 +10,8 @@ import Login from "./components/pages/Login";
 import Logout from "./components/pages/Logout";
 import Target from "./components/Target";
 import Sns from "./components/Sns";
-import Notification from "./components/Notification";
+//import Notification from "./components/Notification";
+import Notification from "./components/templates/notification";
 import Auth from "./Auth";
 
 import Header from "./components/organisms/Header";
