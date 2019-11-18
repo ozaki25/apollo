@@ -75,7 +75,7 @@ function Header() {
     >
       <List>
         <ListItem>
-          <ListItemText primary="目標" />
+          <ListItemText primary="Achievement" />
         </ListItem>
 
         <ListItem button key="regist" onClick={menuClick("mokuhyouichirann")}>
@@ -160,7 +160,7 @@ function Header() {
       <Divider />
       <List>
         <ListItem>
-          <ListItemText primary="通知" />
+          <ListItemText primary="Notification" />
         </ListItem>
         <ListItem button key="notify" onClick={menuClick("notification")}>
           <ListItemIcon>
