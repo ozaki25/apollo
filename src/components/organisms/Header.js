@@ -35,7 +35,8 @@ const useStyles = makeStyles(theme => ({
     width: "100%",
     zIndex: "100",
     margin: "0",
-    padding: "0"
+    padding: "0",
+    backgroundColor: "#ff8c00"
   },
   menuButton: {
     marginRight: theme.spacing(2)
@@ -112,17 +113,6 @@ function Header() {
             <TimelapseIcon />
           </ListItemIcon>
           <ListItemText primary="進捗登録" />
-        </ListItem>
-
-        <ListItem
-          button
-          key="checkSchedule"
-          onClick={menuClick("sinncyokukannri")}
-        >
-          <ListItemIcon>
-            <AlarmIcon />
-          </ListItemIcon>
-          <ListItemText primary="進捗状況を確認" />
         </ListItem>
 
         <ListItem
@@ -216,7 +206,7 @@ function Header() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            Top
+            Apollo
           </Typography>
           <Button color="inherit" onClick={() => history.replace("/logout")}>
             LogOut

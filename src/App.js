@@ -56,9 +56,11 @@ export default function App() {
       <div className={classes.contents}>
         <Router>
           <Switch>
+            <Route exact path="/login" component={Login} />
             <Route exact path="/" component={Login} />
             <Route exact path="/logout" component={Logout} />
             <Auth>
+              <Route exact path="/" component={mokuhyouichirann} />
               <Header />
               <Switch>
                 <Route exact path="/target" component={Target} />
@@ -105,8 +107,6 @@ export default function App() {
                   path="/sinncyokukannri"
                   component={sinncyokukannri}
                 />
-
-                <Redirect from="/" to="/mokuhyouichirann" />
               </Switch>
               {/* <Footer /> */}
             </Auth>
