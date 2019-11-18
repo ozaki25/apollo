@@ -25,6 +25,7 @@ import InsertCommentIcon from "@material-ui/icons/InsertComment";
 import InsertChartIcon from "@material-ui/icons/InsertChart";
 import NotificationsActiveIcon from "@material-ui/icons/NotificationsActive";
 import InsertLinkIcon from "@material-ui/icons/InsertLink";
+import TimelapseIcon from "@material-ui/icons/Timelapse";
 
 const useStyles = makeStyles(theme => ({
   header: {
@@ -76,41 +77,69 @@ function Header() {
         <ListItem>
           <ListItemText primary="目標" />
         </ListItem>
-        <ListItem button onClick={menuClick("confirmprofile?target")}>
+        <ListItem
+          button
+          key="targetregistry"
+          onClick={menuClick("targetregistry")}
+        >
           <ListItemIcon>
             <PersonAddIcon />
           </ListItemIcon>
           <ListItemText primary="プロフィール作成" />
         </ListItem>
-        <ListItem button onClick={menuClick("targetregist")}>
+
+        <ListItem
+          button
+          key="confirmprofile"
+          onClick={menuClick("confirmprofile")}
+        >
           <ListItemIcon>
             <PersonIcon />
           </ListItemIcon>
           <ListItemText primary="プロフィール確認" />
         </ListItem>
 
-        <ListItem button key="regist" onClick={menuClick()}>
+        <ListItem button key="regist" onClick={menuClick("mokuhyouichirann")}>
           <ListItemIcon>
             <QueueIcon />
           </ListItemIcon>
           <ListItemText primary="目標一覧を確認する" />
         </ListItem>
 
-        <ListItem button key="addTarget" onClick={menuClick()}>
+        <ListItem button key="addTarget" onClick={menuClick("profile")}>
           <ListItemIcon>
             <AddBoxIcon />
           </ListItemIcon>
           <ListItemText primary="自分の目標を追加する" />
         </ListItem>
 
-        <ListItem button key="checkTarget" onClick={menuClick()}>
+        <ListItem
+          button
+          key="checkTarget"
+          onClick={menuClick("mokuhyoukannri")}
+        >
           <ListItemIcon>
             <ListIcon />
           </ListItemIcon>
           <ListItemText primary="自分の目標を確認" />
         </ListItem>
 
-        <ListItem button key="checkSchedule" onClick={menuClick()}>
+        <ListItem
+          button
+          key="jissekitouroku"
+          onClick={menuClick("jissekitouroku")}
+        >
+          <ListItemIcon>
+            <TimelapseIcon />
+          </ListItemIcon>
+          <ListItemText primary="進捗登録" />
+        </ListItem>
+
+        <ListItem
+          button
+          key="checkSchedule"
+          onClick={menuClick("sinncyokukannri")}
+        >
           <ListItemIcon>
             <AlarmIcon />
           </ListItemIcon>
@@ -141,19 +170,20 @@ function Header() {
           <ListItemText primary="合格体験記を書く" />
         </ListItem>
 
-        <ListItem button key="checkThread" onClick={menuClick}>
+        <ListItem button key="checkThread" onClick={menuClick("sns_overview")}>
           <ListItemIcon>
             <InsertChartIcon />
           </ListItemIcon>
           <ListItemText primary="スレッドを確認する" />
         </ListItem>
       </List>
+
       <Divider />
       <List>
         <ListItem>
           <ListItemText primary="通知" />
         </ListItem>
-        <ListItem button key="notify" onClick={menuClick}>
+        <ListItem button key="notify" onClick={menuClick("notification")}>
           <ListItemIcon>
             <NotificationsActiveIcon />
           </ListItemIcon>
