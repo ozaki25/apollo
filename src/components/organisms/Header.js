@@ -77,27 +77,6 @@ function Header() {
         <ListItem>
           <ListItemText primary="目標" />
         </ListItem>
-        <ListItem
-          button
-          key="targetregistry"
-          onClick={menuClick("targetregistry")}
-        >
-          <ListItemIcon>
-            <PersonAddIcon />
-          </ListItemIcon>
-          <ListItemText primary="プロフィール作成" />
-        </ListItem>
-
-        <ListItem
-          button
-          key="confirmprofile"
-          onClick={menuClick("confirmprofile")}
-        >
-          <ListItemIcon>
-            <PersonIcon />
-          </ListItemIcon>
-          <ListItemText primary="プロフィール確認" />
-        </ListItem>
 
         <ListItem button key="regist" onClick={menuClick("mokuhyouichirann")}>
           <ListItemIcon>
@@ -195,6 +174,27 @@ function Header() {
             <InsertLinkIcon />
           </ListItemIcon>
           <ListItemText primary="IPPOと連携する" />
+        </ListItem>
+        <ListItem
+          button
+          key="targetregistry"
+          onClick={menuClick("targetregistry")}
+        >
+          <ListItemIcon>
+            <PersonAddIcon />
+          </ListItemIcon>
+          <ListItemText primary="プロフィール作成" />
+        </ListItem>
+
+        <ListItem
+          button
+          key="confirmprofile"
+          onClick={menuClick("confirmprofile")}
+        >
+          <ListItemIcon>
+            <PersonIcon />
+          </ListItemIcon>
+          <ListItemText primary="プロフィール確認" />
         </ListItem>
       </List>
     </div>
