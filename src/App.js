@@ -106,9 +106,9 @@ export default function App() {
                   component={sinncyokukannri}
                 />
 
-                <Redirect from="/" to="/target" />
+                <Redirect from="/" to="/mokuhyouichirann" />
               </Switch>
-              <Footer />
+              {/* <Footer /> */}
             </Auth>
           </Switch>
         </Router>
