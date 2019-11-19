@@ -23,7 +23,7 @@ function App() {
   return (
    <div className="App">    
     <center>
-      あなたの進捗率は （実施時間集計/目標勉強時間）%   
+      現在の進捗率は （実施時間集計/目標勉強時間）%   
       <PieChart width={400} height={400}>
         <Pie
           data={division}

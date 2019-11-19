@@ -8,6 +8,8 @@ import Typography from '@material-ui/core/Typography';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import { useHistory } from "react-router-dom";
+import ListItem from '@material-ui/core/ListItem';
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -47,7 +49,7 @@ export default function ComposedTextField() {
       [name]: event.target.value,
     });
   };
-
+  const history = useHistory();
 
   return (
     <Container className={classes.container}>
@@ -168,9 +170,11 @@ export default function ComposedTextField() {
         />
           </div>
           <div className = {classes.div1}>
-         <Button variant="contained" color="primary" className={classes.button}>
+          <ListItem button onClick={(event) => history.push("/confirmprofile")}>
+      <Button variant="contained" size="large" color="primary" className={classes.margin}>
         プロフィールを更新
       </Button>
+      </ListItem>
       </div>
     </Container>
   );

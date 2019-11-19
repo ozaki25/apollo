@@ -79,31 +79,20 @@ function Header() {
           <ListItemText primary="Achievement" />
         </ListItem>
 
-        <ListItem button key="regist" onClick={menuClick("mokuhyouichirann")}>
+        <ListItem button key="checkTarget" onClick={menuClick("mokuhyoukannri")}>
           <ListItemIcon>
-            <QueueIcon />
+            <ListIcon />
           </ListItemIcon>
-          <ListItemText primary="目標一覧を確認する" />
+          <ListItemText primary="目標/実績管理" />
         </ListItem>
 
         <ListItem button key="addTarget" onClick={menuClick("profile")}>
           <ListItemIcon>
             <AddBoxIcon />
           </ListItemIcon>
-          <ListItemText primary="自分の目標を追加する" />
+          <ListItemText primary="目標を追加" />
         </ListItem>
-
-        <ListItem
-          button
-          key="checkTarget"
-          onClick={menuClick("mokuhyoukannri")}
-        >
-          <ListItemIcon>
-            <ListIcon />
-          </ListItemIcon>
-          <ListItemText primary="自分の目標を確認" />
-        </ListItem>
-
+        
         <ListItem
           button
           key="jissekitouroku"
@@ -115,16 +104,6 @@ function Header() {
           <ListItemText primary="進捗登録" />
         </ListItem>
 
-        <ListItem
-          button
-          key="checkJisseki"
-          onClick={menuClick("jissekikannri")}
-        >
-          <ListItemIcon>
-            <ListAltIcon />
-          </ListItemIcon>
-          <ListItemText primary="受験実績を確認" />
-        </ListItem>
       </List>
 
       <Divider />
@@ -132,20 +111,21 @@ function Header() {
         <ListItem>
           <ListItemText primary="SNS" />
         </ListItem>
+        <ListItem button key="checkThread" onClick={menuClick("snsOverview")}>
+          <ListItemIcon>
+            <InsertChartIcon />
+          </ListItemIcon>
+          <ListItemText primary="コミュニティスレッド" />
+        </ListItem>
+      </List>
+
         <ListItem button key="goukakuki" onClick={menuClick("goukakuki?sns")}>
           <ListItemIcon>
             <InsertCommentIcon />
           </ListItemIcon>
-          <ListItemText primary="合格体験記を書く" />
+          <ListItemText primary="合格体験記" />
         </ListItem>
 
-        <ListItem button key="checkThread" onClick={menuClick("sns_overview")}>
-          <ListItemIcon>
-            <InsertChartIcon />
-          </ListItemIcon>
-          <ListItemText primary="スレッドを確認する" />
-        </ListItem>
-      </List>
 
       <Divider />
       <List>
@@ -156,7 +136,7 @@ function Header() {
           <ListItemIcon>
             <NotificationsActiveIcon />
           </ListItemIcon>
-          <ListItemText primary="通知を確認する" />
+          <ListItemText primary="通知" />
         </ListItem>
 
         <ListItem button key="shareIPPO" onClick={menuClick}>
@@ -164,16 +144,6 @@ function Header() {
             <InsertLinkIcon />
           </ListItemIcon>
           <ListItemText primary="IPPOと連携する" />
-        </ListItem>
-        <ListItem
-          button
-          key="targetregistry"
-          onClick={menuClick("targetregistry")}
-        >
-          <ListItemIcon>
-            <PersonAddIcon />
-          </ListItemIcon>
-          <ListItemText primary="プロフィール作成" />
         </ListItem>
 
         <ListItem

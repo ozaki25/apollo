@@ -36,18 +36,18 @@ export default function LetterAvatars() {
         <Grid item xs={1}>
           <DnsIcon />
           </Grid>
-        <ListItemText primary="スレッド通知" secondary="xxxさんの新しい投稿がありました" />
+        <ListItemText primary="スレッド通知" secondary="ちいたむ さんの新しい投稿がありました" />
         </Grid>
       </ListItem>
       <Divider />
       <ListItem>
         <AlarmIcon />
-        <ListItemText primary="進捗通知" secondary="今週の目標達成まであとxx時間です！" />
+        <ListItemText primary="進捗通知" secondary="今週の目標達成まであと5時間です！" />
       </ListItem>
       <Divider />
       <ListItem>
         <ImportContactsIcon />
-        <ListItemText primary="合格記" secondary="xxxさんの新しい投稿がありました" />
+        <ListItemText primary="合格記" secondary="あいおん さんの新しい投稿がありました" />
       </ListItem>
       <Divider />
     </List> 

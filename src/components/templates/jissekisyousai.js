@@ -7,6 +7,8 @@ import Tabs from '@material-ui/core/Tabs';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button'
+import { useHistory } from "react-router-dom";
+import ListItem from '@material-ui/core/ListItem';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -55,15 +57,11 @@ export default function SimpleTabs() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  
+  const history = useHistory();
+
   return (
     <div className={classes.root}>
-      <AppBar position="static">
-        <Tabs value={value} onChange={handleChange} aria-label="simple  tabs example" centered>
-          <Tab label="目標管理" {...a11yProps(0)} />
-          <Tab label="受験実績" {...a11yProps(1)} />
-        </Tabs>
-      </AppBar> 
+
       <br></br>
       <strong>
         応用情報技術者試験
@@ -81,14 +79,16 @@ export default function SimpleTabs() {
         点数
       </strong>
       <br></br>
-        午前１：xx点、午前２：xx点
+        午前１：80点、午前２：95点
       <br></br>
-      　午後１：xx点、午後２：xx点　
+      　午後１：70点、午後２：65点　
       <br></br>
       <br></br>
+      <ListItem button onClick={(event) => history.push("/goukakuki")}>
       <Button variant="contained" size="large" color="primary" className={classes.margin}>
          合格記を書く
       </Button>
+      </ListItem>
     </div>
   );
 }
