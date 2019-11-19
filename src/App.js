@@ -9,7 +9,6 @@ import {
 import Login from "./components/pages/Login";
 import Logout from "./components/pages/Logout";
 import Target from "./components/Target";
-import Sns from "./components/Sns";
 //import Notification from "./components/Notification";
 import Notification from "./components/templates/notification";
 import Auth from "./Auth";
@@ -20,6 +19,7 @@ import confirmprofile from "./components/templates/confirmprofile";
 import confirmprofileother from "./components/templates/confirmprofileother";
 import goukakuki from "./components/templates/goukakuki";
 import jissekikannri from "./components/templates/jissekikannri";
+import snsOverview from "./components/templates/snsOverview";
 import jissekisyousai from "./components/templates/jissekisyousai";
 import jissekitouroku from "./components/templates/jissekitouroku";
 import mokuhyouichirann from "./components/templates/mokuhyouichirann";
@@ -28,6 +28,7 @@ import notification from "./components/templates/notification";
 import profile from "./components/templates/profile";
 import resistersns from "./components/templates/resistersns";
 import sinncyokukannri from "./components/templates/sinncyokukannri";
+import targetRegistry from "./components/templates/targetRegistry";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -64,7 +65,6 @@ export default function App() {
               <Header />
               <Switch>
                 <Route exact path="/target" component={Target} />
-                <Route exact path="/sns" component={Sns} />
                 <Route exact path="/notification" component={Notification} />
 
                 <Route
@@ -102,6 +102,8 @@ export default function App() {
                 <Route exact path="/notification" component={notification} />
                 <Route exact path="/profile" component={profile} />
                 <Route exact path="/resistersns" component={resistersns} />
+                <Route exact path="/snsOverview" component={snsOverview} />
+                <Route exact path="/targetRegistry" component={targetRegistry} />
                 <Route
                   exact
                   path="/sinncyokukannri"

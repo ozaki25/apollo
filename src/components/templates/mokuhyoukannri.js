@@ -9,6 +9,10 @@ import Box from '@material-ui/core/Box';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Link from '@material-ui/core/Link';
+import { useHistory } from "react-router-dom";
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import { Divider } from '@material-ui/core';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -81,32 +85,61 @@ export default function SimpleTabs() {
   const classes3 = useStyles3();
   const preventDefault = event => event.preventDefault();
 
+  const history = useHistory();
+
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Tabs value={value} onChange={handleChange} aria-label="simple  tabs example" centered>
-          <Tab label="目標管理" {...a11yProps(0)} />
-          <Tab label="受験実績" {...a11yProps(1)} />
+          <Tab label="目標一覧" {...a11yProps(0)} />
+          <Tab label="受験実績一覧" {...a11yProps(1)} />
         </Tabs>
       </AppBar>  
+      <TabPanel value={value} index={0}>
     <Card className={classes2.card}>
       <CardContent>
        <Typography className={classes2.title} color="textSecondary" gutterBottom>
-        <Link href="#" onClick={preventDefault} className={classes3.link}>
-        {'基本情報処理技術者試験'}
-        </Link>
+       <ListItem button onClick={(event) => history.push("/sinncyokukannri")}>
+            <ListItemText primary="LPIC level2" />
+       </ListItem>
        </Typography>
       </CardContent> 
     </Card>
+    <Divider />
     <Card className={classes2.card}>
       <CardContent>
        <Typography className={classes2.title} color="textSecondary" gutterBottom>
-       <Link href="#" onClick={preventDefault} className={classes3.link}>
-        {'応用情報処理技術者試験'}
-        </Link>   
+       <ListItem button onClick={(event) => history.push("/sinncyokukannri")}>
+            <ListItemText primary="情報処理安全確保支援士" />
+       </ListItem>
        </Typography>
       </CardContent> 
     </Card>
+    <Divider />
+    </TabPanel>
+
+    <TabPanel value={value} index={1}>
+    <Card className={classes2.card}>
+      <CardContent>
+       <Typography className={classes2.title} color="textSecondary" gutterBottom>
+       <ListItem button onClick={(event) => history.push("/jissekisyousai")}>
+            <ListItemText primary="基本情報処理技術者試験" /> 2018/08/30   合格
+       </ListItem>
+       </Typography>
+      </CardContent> 
+    </Card>
+    <Divider />
+    <Card className={classes2.card}>
+      <CardContent>
+       <Typography className={classes2.title} color="textSecondary" gutterBottom>
+       <ListItem button onClick={(event) => history.push("/jissekisyousai")}>
+            <ListItemText primary="応用情報処理技術者試験" /> 2018/04/15   合格
+       </ListItem>
+       </Typography>
+      </CardContent> 
+      <Divider />
+    </Card>
+    </TabPanel>
     </div>
   );
 }

@@ -6,6 +6,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import Button from "@material-ui/core/Button";
+import { useHistory } from "react-router-dom";
 
 const useStyles1 = makeStyles(theme => ({
   formControl: {
@@ -47,7 +48,7 @@ export default function DatePickers() {
   const classes4 = useStyles4();
   const [age, setAge] = React.useState("");
   const [open, setOpen] = React.useState(false);
-
+  const history = useHistory();
   const handleChange = event => {
     setAge(event.target.value);
   };
@@ -158,6 +159,8 @@ export default function DatePickers() {
         color="primary"
         className={classes4.margin}
         onClick={() => console.log({ age }, { targetDate }, { hour })}
+        {alert("目標を追加しました。");
+        history.push("/mokuhyoukannri");
       >
         目標を追加する
       </Button>
