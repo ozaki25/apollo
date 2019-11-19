@@ -64,6 +64,8 @@ export default function DatePickers() {
   const [hour, setHour] = React.useState("");
   const [open2, setOpen2] = React.useState(false);
 
+  const [targetDate, setTargetDate] = React.useState("");
+
   const handleChange2 = event => {
     setHour(event.target.value);
   };
@@ -74,6 +76,10 @@ export default function DatePickers() {
 
   const handleOpen2 = () => {
     setOpen2(true);
+  };
+
+  const targetDateChange = event => {
+    setTargetDate(event.target.value);
   };
 
   return (
@@ -89,10 +95,10 @@ export default function DatePickers() {
           value={age}
           onChange={handleChange}
         >
-          <MenuItem value={10}>FE：基本情報技術者試験</MenuItem>
-          <MenuItem value={20}>AE：応用情報技術者試験</MenuItem>
-          <MenuItem value={30}>SC：安全確保支援士試験</MenuItem>
-          <MenuItem value={40}>ST：ITストラテジスト試験</MenuItem>
+          <MenuItem value={1}>FE：基本情報技術者試験</MenuItem>
+          <MenuItem value={2}>AE：応用情報技術者試験</MenuItem>
+          <MenuItem value={3}>SC：安全確保支援士試験</MenuItem>
+          <MenuItem value={4}>ST：ITストラテジスト試験</MenuItem>
         </Select>
       </FormControl>
       <br></br>
@@ -102,8 +108,9 @@ export default function DatePickers() {
         <TextField
           id="date"
           type="date"
-          defaultValue="2019-01-01"
           className={classes2.textField1}
+          value={targetDate}
+          onChange={targetDateChange}
           InputLabelProps={{
             shrink: true
           }}
@@ -151,10 +158,9 @@ export default function DatePickers() {
         size="large"
         color="primary"
         className={classes4.margin}
-        onClick={() => {alert("目標を追加しました。");
+        onClick={() => console.log({ age }, { targetDate }, { hour })}
+        {alert("目標を追加しました。");
         history.push("/mokuhyoukannri");
-      
-      }}
       >
         目標を追加する
       </Button>
