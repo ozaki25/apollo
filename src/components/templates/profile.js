@@ -158,9 +158,11 @@ export default function DatePickers() {
         size="large"
         color="primary"
         className={classes4.margin}
-        onClick={() => console.log({ age }, { targetDate }, { hour })}
-        {alert("目標を追加しました。");
-        history.push("/mokuhyoukannri");
+        onClick={() => {
+          console.log({ age }, { targetDate }, { hour });
+          alert("目標を追加しました。");
+          history.push("/mokuhyoukannri");
+        }}
       >
         目標を追加する
       </Button>
