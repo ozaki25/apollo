@@ -14,13 +14,9 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
-import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import PersonIcon from "@material-ui/icons/Person";
-import QueueIcon from "@material-ui/icons/Queue";
 import AddBoxIcon from "@material-ui/icons/AddBox";
 import ListIcon from "@material-ui/icons/List";
-import AlarmIcon from "@material-ui/icons/Alarm";
-import ListAltIcon from "@material-ui/icons/ListAlt";
 import InsertCommentIcon from "@material-ui/icons/InsertComment";
 import InsertChartIcon from "@material-ui/icons/InsertChart";
 import NotificationsActiveIcon from "@material-ui/icons/NotificationsActive";
@@ -79,7 +75,11 @@ function Header() {
           <ListItemText primary="Achievement" />
         </ListItem>
 
-        <ListItem button key="checkTarget" onClick={menuClick("mokuhyoukannri")}>
+        <ListItem
+          button
+          key="checkTarget"
+          onClick={menuClick("mokuhyoukannri")}
+        >
           <ListItemIcon>
             <ListIcon />
           </ListItemIcon>
@@ -92,7 +92,7 @@ function Header() {
           </ListItemIcon>
           <ListItemText primary="目標を追加" />
         </ListItem>
-        
+
         <ListItem
           button
           key="jissekitouroku"
@@ -103,7 +103,6 @@ function Header() {
           </ListItemIcon>
           <ListItemText primary="進捗登録" />
         </ListItem>
-
       </List>
 
       <Divider />
@@ -119,13 +118,12 @@ function Header() {
         </ListItem>
       </List>
 
-        <ListItem button key="goukakuki" onClick={menuClick("goukakuki?sns")}>
-          <ListItemIcon>
-            <InsertCommentIcon />
-          </ListItemIcon>
-          <ListItemText primary="合格体験記" />
-        </ListItem>
-
+      <ListItem button key="goukakuki" onClick={menuClick("goukakuki?sns")}>
+        <ListItemIcon>
+          <InsertCommentIcon />
+        </ListItemIcon>
+        <ListItemText primary="合格体験記" />
+      </ListItem>
 
       <Divider />
       <List>

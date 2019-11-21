@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Login from "./components/pages/Login";
 import Logout from "./components/pages/Logout";
@@ -14,7 +9,6 @@ import Notification from "./components/templates/notification";
 import Auth from "./Auth";
 
 import Header from "./components/organisms/Header";
-import Footer from "./components/organisms/Footer";
 import confirmprofile from "./components/templates/confirmprofile";
 import confirmprofileother from "./components/templates/confirmprofileother";
 import goukakuki from "./components/templates/goukakuki";
@@ -103,7 +97,11 @@ export default function App() {
                 <Route exact path="/profile" component={profile} />
                 <Route exact path="/resistersns" component={resistersns} />
                 <Route exact path="/snsOverview" component={snsOverview} />
-                <Route exact path="/targetRegistry" component={targetRegistry} />
+                <Route
+                  exact
+                  path="/targetRegistry"
+                  component={targetRegistry}
+                />
                 <Route
                   exact
                   path="/sinncyokukannri"
