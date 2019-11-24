@@ -6,6 +6,8 @@ import Container from "@material-ui/core/Container";
 import NativeSelect from "@material-ui/core/NativeSelect";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import { useHistory } from "react-router-dom";
+import ListItem from "@material-ui/core/ListItem";
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -35,7 +37,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function ComposedTextField() {
   const classes = useStyles();
-
+  const history = useHistory();
   return (
     <Container className={classes.container}>
       <div className={classes.div1}>
@@ -140,9 +142,11 @@ export default function ComposedTextField() {
           }}
         />
         <br></br>
-        <Button variant="contained" color="primary" className={classes.button}>
-          プロフィールを更新
-        </Button>
+        <ListItem button onClick={(event) => history.push("/confirmprofile")}>
+      <Button variant="contained" size="large" color="primary" className={classes.margin}>
+        プロフィールを更新
+      </Button>
+      </ListItem>
       </div>
     </Container>
   );

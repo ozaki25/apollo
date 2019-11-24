@@ -6,6 +6,8 @@ import Button from "@material-ui/core/Button";
 import InputLabel from "@material-ui/core/InputLabel";
 import Container from "@material-ui/core/Container";
 import NativeSelect from "@material-ui/core/NativeSelect";
+import { useHistory } from "react-router-dom";
+import ListItem from "@material-ui/core/ListItem";
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -35,7 +37,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function DatePickers() {
   const classes = useStyles();
-
+  const history = useHistory();
   return (
     <Container className={classes.container}>
       <div className={classes.div1}>
@@ -87,9 +89,13 @@ export default function DatePickers() {
           </NativeSelect>
         </FormControl>
         <br></br>
-        <Button variant="contained" color="primary" className={classes.button}>
-          目標を追加する
-        </Button>
+        <ListItem button onClick={(event) => 
+        {alert("目標を追加しました。");
+        history.push("/mokuhyoukannri")}}>
+      <Button variant="contained" size="large" color="primary" className={classes.margin}>
+         目標を追加する
+      </Button>
+      </ListItem>
       </div>
     </Container>
   );

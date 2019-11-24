@@ -49,7 +49,9 @@ export default function LetterAvatars() {
         variant="outlined"
       />
       <br></br>
-      <ListItem button onClick={event => history.push("/snsOverview")}>
+      <ListItem button onClick={(event) => 
+        {alert("新規スレッドを投稿しました。");
+        history.push("/snsOverview")}}>
         <Button
           variant="contained"
           size="large"

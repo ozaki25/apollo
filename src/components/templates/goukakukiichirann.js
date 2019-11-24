@@ -6,6 +6,9 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Link from "@material-ui/core/Link";
 import Divider from "@material-ui/core/Divider";
+import { useHistory } from "react-router-dom";
+import ListItem from "@material-ui/core/ListItem";
+import Button from "@material-ui/core/Button";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -63,6 +66,7 @@ export default function SimpleTabs() {
   const classes2 = useStyles2();
   const classes3 = useStyles3();
   const preventDefault = event => event.preventDefault();
+  const history = useHistory();
 
   return (
     <div className={classes.root}>
@@ -74,15 +78,15 @@ export default function SimpleTabs() {
             gutterBottom
           >
             <Link href="#" onClick={preventDefault} className={classes3.link}>
-              {"基本情報受かったよー(Tytle1)"}
+              {"基本情報受かったよー"}
             </Link>
             <br></br>
           </Typography>
         </CardContent>
         <div className={classes3.div1}>
-          ユーザー名：
+          ユーザー名：ふるかわ
           <br></br>
-          投稿日時:
+          投稿日時:2018/6/10
         </div>
       </Card>
 
@@ -95,14 +99,14 @@ export default function SimpleTabs() {
             gutterBottom
           >
             <Link href="#" onClick={preventDefault} className={classes3.link}>
-              {"基本情報簡単だったよー(Tytle2)"}
+              {"応用情報合格"}
             </Link>
           </Typography>
         </CardContent>
         <div className={classes3.div1}>
-          ユーザー名：
+          ユーザー名：あいおん
           <br></br>
-          投稿日時:
+          投稿日時:2019/7/12
         </div>
       </Card>
       <Divider />
@@ -115,17 +119,24 @@ export default function SimpleTabs() {
             gutterBottom
           >
             <Link href="#" onClick={preventDefault} className={classes3.link}>
-              {"基本情報試験余裕！(Tytle3)"}
+              {"基本情報試験余裕！"}
             </Link>
           </Typography>
         </CardContent>
         <div className={classes3.div1}>
-          ユーザー名：
+          ユーザー名：ちいたむ
           <br></br>
-          投稿日時:
+          投稿日時:2019/11/12
         </div>
       </Card>
       <Divider />
+      <br></br>
+      <ListItem button onClick={(event) => 
+        history.push("/goukakukiNew")}>
+      <Button variant="contained" size="large" color="primary" className={classes.margin}>
+         合格体験記を投稿する
+      </Button>
+      </ListItem>
     </div>
   );
 }

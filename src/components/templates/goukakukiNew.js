@@ -6,6 +6,8 @@ import Container from "@material-ui/core/Container";
 import NativeSelect from "@material-ui/core/NativeSelect";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import { useHistory } from "react-router-dom";
+import ListItem from "@material-ui/core/ListItem";
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -35,7 +37,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function ComposedTextField() {
   const classes = useStyles();
-
+  const history = useHistory();
   return (
     <Container className={classes.container}>
       <div className={classes.div1}>
@@ -79,7 +81,7 @@ export default function ComposedTextField() {
           id="合格記"
           label="合格記"
           style={{ margin: 8 }}
-          placeholder="具体的な勉強方法、テストの感想、アドバイス等を入力してください"
+          placeholder="具体的な勉強方法、テストの感想、アドバイス等、業務での活用等について入力してください"
           fullWidth
           margin="normal"
           InputLabelProps={{
@@ -87,9 +89,13 @@ export default function ComposedTextField() {
           }}
         />
         <br></br>
-        <Button variant="contained" color="primary" className={classes.button}>
-          合格記を投稿
-        </Button>
+        <ListItem button onClick={(event) => 
+        {alert("合格記を投稿しました");
+        history.push("/goukakukiichirann")}}>
+      <Button variant="contained" size="large" color="primary" className={classes.margin}>
+         合格体験記を投稿する
+      </Button>
+      </ListItem>
       </div>
     </Container>
   );

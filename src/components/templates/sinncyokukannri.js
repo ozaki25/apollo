@@ -1,9 +1,6 @@
 import React from "react";
-import Button from "@material-ui/core/Button";
-
 //Chart
 import { PieChart, Pie, Tooltip, Cell } from "recharts";
-
 const division = [
   { name: "実施済", パーセント: 75, 色: "#2250A2" },
   { name: "残り", パーセント: 25, 色: "#da50a2" }
@@ -11,7 +8,8 @@ const division = [
 
 const COLORS = ["#2250A2", "#da50a2"];
 
-function App() {
+export default function App() {
+
   return (
     <div className="App">
       <center>
@@ -41,12 +39,7 @@ function App() {
         試験日まであと（試験日-本日の日付）日
         <br></br>
         <br></br>
-        <Button variant="contained" color="primary">
-          実績を登録する
-        </Button>
       </center>
     </div>
   );
 }
-
-export default App;
