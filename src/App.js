@@ -29,6 +29,8 @@ import goukakukiichirann from "./components/templates/goukakukiichirann";
 import goukakukiNew from "./components/templates/goukakukiNew";
 import Top from "./components/templates/Top";
 
+import chart from "./components/Notification";
+
 import { makeStyles } from "@material-ui/core/styles";
 
 // serviceWorker
@@ -65,7 +67,6 @@ export default function App() {
               <Switch>
                 <Route exact path="/target" component={Target} />
                 <Route exact path="/notification" component={Notification} />
-
                 <Route
                   exact
                   path="/confirmprofile"
@@ -102,15 +103,30 @@ export default function App() {
                 <Route exact path="/profile" component={profile} />
                 <Route exact path="/resistersns" component={resistersns} />
                 <Route exact path="/snsOverview" component={snsOverview} />
-                <Route exact path="/confirmgoukakuki" component={confirmgoukakuki} />
+                <Route
+                  exact
+                  path="/confirmgoukakuki"
+                  component={confirmgoukakuki}
+                />
                 <Route exact path="/goukakukiNew" component={goukakukiNew} />
-                <Route exact path="/goukakukiichirann" component={goukakukiichirann} />
-                <Route exact path="/targetRegistryNew" component={targetRegistryNew} />
-                <Route exact path="/targetRegistry" component={targetRegistry} />
-                <Route exact path="/Top" component={Top} />
+                <Route
+                  exact
+                  path="/goukakukiichirann"
+                  component={goukakukiichirann}
+                />
+                <Route
+                  exact
+                  path="/targetRegistryNew"
+                  component={targetRegistryNew}
+                />
+                <Route
                   exact
                   path="/targetRegistry"
                   component={targetRegistry}
+                />
+                <Route exact path="/chart" component={chart} />
+                <Route exact path="/Top" component={Top} />
+                exact path="/targetRegistry" component={targetRegistry}
                 />
                 <Route
                   exact
