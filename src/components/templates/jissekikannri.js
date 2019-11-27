@@ -84,14 +84,14 @@ export default function SimpleTabs() {
     <Card className={classes2.card}>
       <CardContent>
        <Typography className={classes2.title} color="textSecondary" gutterBottom>
-        <b>基本情報処理技術者試験</b>　2018/10/22 　合格
+        <b>基本情報処理技術者試験</b>   2018/10/22    合格
        </Typography>
       </CardContent> 
     </Card>
     <Card className={classes2.card}>
       <CardContent>
        <Typography className={classes2.title} color="textSecondary" gutterBottom>
-       　<b>応用情報処理技術者試験</b> 　2019/10/25 　合格
+       　<b>応用情報処理技術者試験</b>    2019/10/25    合格
        </Typography>
       </CardContent> 
     </Card>
